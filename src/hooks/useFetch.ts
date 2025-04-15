@@ -23,7 +23,6 @@ export function useFetch<T>(api: () => Promise<T>) {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, [refresh]);
 

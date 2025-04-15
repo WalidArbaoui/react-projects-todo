@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { TaskStatus } from "../../enum/Task.enum";
 
 type Props = {
-  title: string;
+  title: TaskStatus;
   value: number;
   unit?: string;
   icon: string;
@@ -15,6 +16,8 @@ const StatisticsCard = ({
   icon,
   iconColor = "main",
 }: Props) => {
+  const titleText =
+    Object.keys(TaskStatus)[Object.values(TaskStatus).indexOf(title)];
   return (
     <div
       className="flex items-center gap-2 border-l-2 py-4 px-2 bg-gray-50"
@@ -31,10 +34,10 @@ const StatisticsCard = ({
             height="16"
             style={{ color: iconColor }}
           />
-          {title}
+          {titleText}
         </h3>
         <span className="text-gray-400 text-sm">
-          {`${unit}${value !== 1 && "s"}`}
+          {`${unit}${value !== 1 ? "s" : ""}`}
         </span>
       </div>
     </div>
