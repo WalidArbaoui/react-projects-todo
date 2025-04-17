@@ -20,7 +20,7 @@ const SimpleModal = ({ children, openModal, closeModal }: Props) => {
     <dialog
       ref={ref}
       onCancel={closeModal}
-      className="relative m-auto p-4 pt-8 rounded-xl"
+      className="relative m-auto p-4 pt-8 rounded-xl text-dark bg-light"
     >
       <button
         onClick={closeModal}

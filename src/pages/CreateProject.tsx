@@ -9,10 +9,11 @@ import { createProject } from "../store/ProjectSlice";
 type Props = {};
 
 const AddProject = (props: Props) => {
-  const [formData, setFormData] = useState<ProjectType>({
+  const initialForm = {
     name: "",
     description: "",
-  });
+  };
+  const [formData, setFormData] = useState<ProjectType>(initialForm);
   const [error, setError] = useState("");
   const dispatch = useDispatch<AppDispatch>();
 
@@ -32,6 +33,7 @@ const AddProject = (props: Props) => {
     if (error) {
       setError(error);
     }
+    setFormData(initialForm);
   };
 
   return (

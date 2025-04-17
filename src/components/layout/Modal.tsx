@@ -38,7 +38,7 @@ const Modal = ({ children, title }: Props) => {
 
   return (
     <div className="modalDiv">
-      <div className="modal flex flex-col" ref={modalRef}>
+      <div className="modal flex flex-col bg-light text-dark" ref={modalRef}>
         <div className="flex items-center p-6 gap-4">
           <button
             onClick={handleCloseModal}

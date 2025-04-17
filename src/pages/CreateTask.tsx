@@ -45,6 +45,15 @@ const CreateTask = (props: Props) => {
   };
   return (
     <Modal title="Create Task">
+      <div className="py-8">
+        <Icon
+          icon="fluent:note-add-48-regular"
+          className="mx-auto"
+          width="82"
+          height="82"
+        />
+      </div>
+
       <form
         method="post"
         className="flex flex-col px-6 pb-6 grow"
@@ -70,9 +79,12 @@ const CreateTask = (props: Props) => {
               value={formData.status}
               onChange={handleChange}
               name="status"
+              className="cursor-pointer"
             >
               {Object.entries(TaskStatus).map(([key, value]) => (
-                <option value={value}>{key}</option>
+                <option value={value} className="dark:text-light">
+                  {key}
+                </option>
               ))}
             </select>
           </div>
@@ -85,9 +97,12 @@ const CreateTask = (props: Props) => {
               value={formData.priority}
               onChange={handleChange}
               name="priority"
+              className="cursor-pointer"
             >
               {Object.entries(TaskPriority).map(([key, value]) => (
-                <option value={value}>{key}</option>
+                <option value={value} className="dark:text-light">
+                  {key}
+                </option>
               ))}
             </select>
           </div>

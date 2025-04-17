@@ -30,7 +30,7 @@ const ProjectsList = ({ projects, showDelete = false }: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-2">
       {projects.map((project) => (
         <div
           className="grid grid-rows-[auto_1fr_auto] border border-gray-300 p-4"

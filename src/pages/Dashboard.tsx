@@ -1,25 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import StatisticsCard from "../components/dashboard/StatisticsCard";
 import ProjectsList from "../components/project/ProjectsList";
-import {
-  getAllTasks,
-  getTasksIsLoading,
-  getTasksError,
-  fetchTasks,
-} from "../store/TaskSlice";
+import { getAllTasks, fetchTasks } from "../store/TaskSlice";
 import { useEffect, useState } from "react";
 import { AppDispatch } from "../store";
-import { TaskStatus } from "../enum/Task.enum";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { DashboardCards, DashboardCardsType } from "../config/style.config";
-import { ensure } from "../helper/typescript.helper";
 import { fetchProjects, getAllProjects } from "../store/ProjectSlice";
 
 const Dashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
   const tasks = useSelector(getAllTasks);
-  const tasksError = useSelector(getTasksError);
-  const tasksIsLoading = useSelector(getTasksIsLoading);
   const [cardsValues, useCardsValues] =
     useState<DashboardCardsType[]>(DashboardCards);
 

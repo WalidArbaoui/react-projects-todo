@@ -163,3 +163,47 @@ export const getAllTasks = (state: { task: TaskState }) => state.task.data;
 export const getTasksIsLoading = (state: { task: TaskState }) =>
   state.task.isLoading;
 export const getTasksError = (state: { task: TaskState }) => state.task.error;
+
+export const getFilteredTasks = (
+  state: { task: TaskState },
+  statusFilter: string | null
+) => {
+  const allTasks = getAllTasks(state);
+  if (!statusFilter) {
+    return allTasks;
+  }
+  return allTasks.filter((task) => task.status === statusFilter);
+};
+
+export const getSearchedTasks = (
+  state: { task: TaskState },
+  searchQuery: string
+) => {
+  const allTasks = getAllTasks(state);
+  if (!searchQuery.trim()) {
+    return allTasks;
+  }
+  const lowerCaseQuery = searchQuery.toLowerCase();
+  return allTasks.filter(
+    (task) =>
+      task.title.toLowerCase().includes(lowerCaseQuery) ||
+      task.description.toLowerCase().includes(lowerCaseQuery)
+  );
+};
+
+export const getFilteredAndSearchedTasks = (
+  state: { task: TaskState },
+  statusFilter: string | null,
+  searchQuery: string
+) => {
+  const filteredTasks = getFilteredTasks(state, statusFilter);
+  const lowerCaseQuery = searchQuery.toLowerCase();
+  if (!searchQuery.trim()) {
+    return filteredTasks;
+  }
+  return filteredTasks.filter(
+    (task) =>
+      task.title.toLowerCase().includes(lowerCaseQuery) ||
+      task.description.toLowerCase().includes(lowerCaseQuery)
+  );
+};

@@ -7,6 +7,7 @@ import Tasks from "./pages/Tasks";
 import CreateProject from "./pages/CreateProject";
 import CreateTask from "./pages/CreateTask";
 import Footer from "./components/layout/Footer";
+import SideBar from "./components/layout/SideBar";
 
 function App() {
   const location = useLocation();
@@ -15,20 +16,23 @@ function App() {
   return (
     <>
       <Header />
-      <main className="flex flex-col px-6">
-        <Routes location={background || location}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<Tasks />} />
-        </Routes>
-        {background && (
-          <Routes>
-            <Route path="/projects/add" element={<CreateProject />} />
-            <Route path="/projects/:id/add" element={<CreateTask />} />
+      <main className="grid grid-cols-[auto_1fr] max-lg:block bg-light text-dark">
+        <SideBar />
+        <div className="flex flex-col p-6 min-lg:overflow-y-scroll">
+          <Routes location={background || location}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<Tasks />} />
           </Routes>
-        )}
+          {background && (
+            <Routes>
+              <Route path="/projects/add" element={<CreateProject />} />
+              <Route path="/projects/:id/add" element={<CreateTask />} />
+            </Routes>
+          )}
+        </div>
       </main>
-      <Footer />
+      <Footer extraClassName="min-lg:hidden" />
     </>
   );
 }

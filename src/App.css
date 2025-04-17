@@ -1,5 +1,11 @@
+html {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 body {
   background: #f9f9f9;
+  max-height: 100vh;
 }
 
 .modalDiv {
@@ -16,9 +22,26 @@ body {
 .modal {
   height: 100%;
   width: 50%;
-  background-color: white;
   transform: translateX(100%);
   transition: all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 64rem) {
+  .modal {
+    width: 80%;
+  }
+  aside {
+    display: none;
+  }
+  html {
+    overflow: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .modal {
+    width: 100%;
+  }
 }
 
 .open {

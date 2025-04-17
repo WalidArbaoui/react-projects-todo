@@ -8,9 +8,10 @@ import { AppDispatch } from "../../store";
 import { deleteTask } from "../../store/TaskSlice";
 type Props = {
   tasks: TaskType[];
+  hasFilter?: boolean;
 };
 
-const TasksList = ({ tasks }: Props) => {
+const TasksList = ({ tasks, hasFilter = false }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
   const [modal, setModal] = useState(false);
   const [task, setTask] = useState<TaskType | undefined>(undefined);
@@ -28,7 +29,7 @@ const TasksList = ({ tasks }: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-2">
       {tasks.map((task) => (
         <TaskCard
           key={task.id}

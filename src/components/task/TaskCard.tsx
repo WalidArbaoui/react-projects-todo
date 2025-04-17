@@ -67,7 +67,7 @@ const TaskCard = ({ task, handleDeleteClick }: Props) => {
           }`}
         >
           <select
-            className="px-2 py-0.5 focus:outline-none"
+            className="px-2 py-0.5 focus:outline-none dark:text-light cursor-pointer"
             value={taskStatus}
             onChange={handleStatusChange}
           >

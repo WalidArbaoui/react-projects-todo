@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center px-4 py-2 border-b border-gray-200 bg-light text-dark">
       <Link to="/" className="flex items-center gap-1">
         <Icon
           icon="material-symbols-light:hub-outline"

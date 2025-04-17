@@ -20,7 +20,7 @@ const StatisticsCard = ({
     Object.keys(TaskStatus)[Object.values(TaskStatus).indexOf(title)];
   return (
     <div
-      className="flex items-center gap-2 border-l-2 py-4 px-2 bg-gray-50"
+      className="flex items-center gap-2 border-l-2 py-4 px-2"
       style={{ borderColor: iconColor }}
     >
       <div>

@@ -1,8 +1,38 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-main: red;
-  --color-main-light: pink;
+:root {
+  --color: white;
+  --color-light: white;
+  --text-color: #121212;
+
+  --gray-light: #e5e7eb;
+  --gray-light-300: #d1d5dc;
+}
+:root.dark {
+  --color: #1f1f1f;
+  --color-light: #2c2c2c;
+  --text-color: #f4f4f4;
+
+  --gray-light: #303030;
+  --gray-light-300: #303030;
+}
+
+@theme inline {
+  /* --color-gray-300: initial; */
+  /* --color-white: initial; */
+  --color-gray-200: initial;
+  --color-gray-300: initial;
+
+  --color-gray-300: var(--gray-light-300);
+  --color-gray-200: var(--gray-light);
+
+  --color-main: #238b45;
+  --color-main-light: #a1d99b;
+
+  --color-light: var(--color);
+  --color-dark-light: var(--color-light);
+  --color-dark: var(--text-color);
 }
 
 button {
